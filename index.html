@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>restoKRON (rKRON) — Merchant Payment Token on Base</title>
+  <meta name="description" content="restoKRON (rKRON) is a Base network token concept for restaurant, hospitality, merchant, and food-service payment infrastructure within the KRON ecosystem." />
+  <meta property="og:title" content="restoKRON (rKRON)" />
+  <meta property="og:description" content="A KRON ecosystem token concept for merchant, restaurant, hospitality, and payment infrastructure on Base." />
+  <meta property="og:image" content="/assets/restokron-hero-banner.png" />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#061a43" />
+  <link rel="canonical" href="https://www.restokron.com/" />
+  <link rel="icon" href="/assets/pay-with-restokron.png" />
+  <style>
+    :root {
+      --blue:#073a91; --deep:#050b1f; --navy:#081735; --gold:#d8a844; --gold2:#ffe08a;
+      --ink:#101827; --muted:#68748a; --light:#f7f9fd; --white:#fff; --line:rgba(12,24,48,.12);
+      --shadow:0 28px 90px rgba(5,11,31,.16); --radius:30px;
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:radial-gradient(circle at 12% 8%,rgba(7,58,145,.18),transparent 32rem),radial-gradient(circle at 88% 14%,rgba(216,168,68,.18),transparent 30rem),linear-gradient(180deg,#fff 0%,#f7f9fd 58%,#eef4ff 100%);overflow-x:hidden}
+    body:before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background-image:linear-gradient(rgba(7,58,145,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(7,58,145,.045) 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to bottom,#000,transparent 76%)}
+    a{color:inherit;text-decoration:none}.container{width:min(1200px,calc(100% - 40px));margin:0 auto}
+    header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.82);border-bottom:1px solid var(--line);backdrop-filter:blur(18px)}
+    .nav{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:950;letter-spacing:-.04em;font-size:1.2rem}
+    .brand img{height:44px;width:auto;display:block}
+    .nav-links{display:flex;align-items:center;gap:18px;color:var(--muted);font-weight:800;font-size:.92rem}
+    .nav-links a:hover{color:var(--ink)}.nav-cta{color:#fff!important;background:var(--deep);padding:12px 18px;border-radius:999px;font-weight:950;box-shadow:0 14px 34px rgba(5,11,31,.18)}
+    .mobile-toggle{display:none;width:46px;height:46px;border:1px solid var(--line);border-radius:16px;background:white;cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px}
+    .mobile-toggle span{width:20px;height:2px;background:var(--ink);border-radius:999px;transition:.18s}
+    .mobile-menu{display:none;border-top:1px solid var(--line);background:rgba(255,255,255,.96);backdrop-filter:blur(18px)}
+    .mobile-menu-inner{width:min(1200px,calc(100% - 40px));margin:0 auto;display:grid;gap:10px;padding:16px 0 22px}
+    .mobile-menu a{padding:14px 16px;border-radius:18px;border:1px solid var(--line);background:white;font-weight:850}
+    body.menu-open .mobile-menu{display:block}body.menu-open .mobile-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}body.menu-open .mobile-toggle span:nth-child(2){opacity:0}body.menu-open .mobile-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .hero{padding:86px 0 72px}.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:48px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;padding:9px 14px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.80);color:var(--muted);font-size:.86rem;font-weight:950;box-shadow:0 10px 34px rgba(7,58,145,.07)}
+    .pulse{width:9px;height:9px;border-radius:999px;background:var(--gold);box-shadow:0 0 0 7px rgba(216,168,68,.16)}
+    h1{margin:24px 0 18px;font-size:clamp(3.1rem,8.4vw,7.25rem);line-height:.86;letter-spacing:-.095em;font-weight:950}
+    .gradient-text{background:linear-gradient(135deg,var(--blue),#1457c5 42%,var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+    .subtitle{margin:0 0 22px;max-width:900px;font-size:clamp(1.32rem,2.8vw,2.32rem);line-height:1.08;letter-spacing:-.055em;font-weight:920}
+    .lead{max-width:780px;margin:0;color:var(--muted);font-size:1.08rem;line-height:1.78}
+    .disclosure{margin-top:20px;max-width:780px;padding:14px 16px;border:1px solid rgba(216,168,68,.35);border-radius:20px;background:rgba(255,255,255,.74);color:#5c4b20;font-size:.92rem;line-height:1.55;font-weight:650}
+    .actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}.btn{min-height:52px;display:inline-flex;align-items:center;justify-content:center;padding:0 22px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.86);font-weight:950;transition:.18s}
+    .btn:hover{transform:translateY(-2px)}.btn.primary{color:white;border:none;background:linear-gradient(135deg,var(--blue),var(--navy));box-shadow:0 20px 52px rgba(7,58,145,.23)}.btn.gold{color:#1b1405;border:none;background:linear-gradient(135deg,var(--gold2),var(--gold));box-shadow:0 20px 52px rgba(216,168,68,.25)}
+    .hero-card{border-radius:42px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.86),rgba(238,244,255,.86));box-shadow:var(--shadow);position:relative;overflow:hidden;padding:26px;min-height:520px;display:grid;align-items:center}
+    .hero-card:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 22% 40%,rgba(7,58,145,.22),transparent 16rem),radial-gradient(circle at 74% 22%,rgba(216,168,68,.18),transparent 16rem)}
+    .hero-card img{width:100%;display:block;border-radius:30px;position:relative;z-index:1;box-shadow:0 24px 70px rgba(5,11,31,.12)}
+    .pay-chip{position:absolute;left:30px;right:30px;bottom:30px;z-index:2;padding:18px 20px;border-radius:24px;background:rgba(5,11,31,.92);color:#fff;border:1px solid rgba(255,255,255,.14);box-shadow:0 22px 60px rgba(5,11,31,.28)}
+    .pay-chip strong{display:block;margin-bottom:6px}.pay-chip span{color:#dbeafe;line-height:1.5}
+    section{padding:80px 0}.section-head{max-width:890px;margin-bottom:36px}.kicker{margin-bottom:12px;color:var(--blue);text-transform:uppercase;letter-spacing:.15em;font-size:.8rem;font-weight:950}
+    h2{margin:0;font-size:clamp(2rem,4.2vw,3.8rem);line-height:.98;letter-spacing:-.07em;font-weight:950}.section-text{margin-top:18px;color:var(--muted);font-size:1.02rem;line-height:1.75}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:24px}.statement{padding:38px;border-radius:32px;background:white;border:1px solid var(--line);box-shadow:var(--shadow)}.statement.big{color:white;background:linear-gradient(135deg,var(--blue),var(--deep))}
+    .statement h3{margin:0 0 16px;font-size:1.7rem;line-height:1.08;letter-spacing:-.05em}.statement p{margin:0;color:var(--muted);line-height:1.75}.statement.big p{color:rgba(255,255,255,.88)}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{min-height:232px;padding:26px;border-radius:var(--radius);border:1px solid var(--line);background:rgba(255,255,255,.86);box-shadow:0 16px 50px rgba(5,11,31,.08)}
+    .icon{width:50px;height:50px;margin-bottom:18px;display:grid;place-items:center;border-radius:17px;color:var(--blue);font-weight:950;background:linear-gradient(135deg,rgba(7,58,145,.12),rgba(216,168,68,.16))}
+    .card h3{margin:0 0 12px;font-size:1.13rem;letter-spacing:-.035em}.card p{margin:0;color:var(--muted);line-height:1.66;font-size:.96rem}
+    .dark-band{padding:58px;border-radius:46px;color:white;background:radial-gradient(circle at top left,rgba(216,168,68,.22),transparent 34rem),radial-gradient(circle at bottom right,rgba(20,87,197,.30),transparent 34rem),#050b1f;box-shadow:var(--shadow)}.dark-band p,.dark-band .section-text{color:#dbeafe;opacity:.90}
+    .layers{display:grid;gap:12px;margin-top:24px}.layer{display:flex;justify-content:space-between;gap:18px;padding:18px 20px;border-radius:20px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.07)}.layer span:first-child{font-weight:900}.layer span:last-child{color:#fde68a;font-size:.86rem;font-weight:850;text-align:right}
+    .timeline{display:grid;gap:16px}.step{display:grid;grid-template-columns:94px 1fr;gap:18px;padding:24px;border:1px solid var(--line);border-radius:26px;background:white;box-shadow:0 14px 42px rgba(5,11,31,.07)}.step strong{color:var(--blue)}.step h3{margin:0 0 8px;letter-spacing:-.035em}.step p{margin:0;color:var(--muted);line-height:1.68}
+    .warning{padding:28px;border-radius:28px;background:#fff8e1;border:1px solid rgba(216,168,68,.38);color:#5c4410;line-height:1.7;font-weight:650}.warning strong{color:#2b1d04}
+    .cta{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:28px;padding:58px;border-radius:44px;color:white;background:radial-gradient(circle at top,rgba(255,255,255,.20),transparent 25rem),linear-gradient(135deg,#050b1f,#073a91 62%,#281a06);box-shadow:var(--shadow)}.cta p{color:#dbeafe;line-height:1.75;opacity:.9}.cta .btn{color:white;background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.18)}.cta .btn.gold{color:#1b1405;background:linear-gradient(135deg,var(--gold2),var(--gold))}
+    footer{padding:40px 0 56px;color:var(--muted);font-size:.92rem}.footer-row{display:flex;justify-content:space-between;gap:20px;border-top:1px solid var(--line);padding-top:24px}.footer-links{display:flex;gap:14px;flex-wrap:wrap}
+    @media(max-width:980px){.hero-grid,.split,.cta{grid-template-columns:1fr}.cards{grid-template-columns:1fr 1fr}.nav-links{display:none}.mobile-toggle{display:inline-flex}.dark-band,.cta{padding:34px;border-radius:32px}}
+    @media(max-width:640px){.container{width:min(100% - 28px,1200px)}.hero{padding-top:56px}h1{font-size:clamp(3rem,17vw,5rem)}.cards{grid-template-columns:1fr}.actions{flex-direction:column}.btn{width:100%}.step{grid-template-columns:1fr}.footer-row{flex-direction:column}.brand img{height:36px}.pay-chip{position:relative;left:auto;right:auto;bottom:auto;margin-top:16px}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="/" class="brand" aria-label="restoKRON home"><img src="/assets/restokron-logo-light.png" alt="restoKRON logo"></a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#about">About</a><a href="#utility">Utility</a><a href="#token">rKRON</a><a href="#roadmap">Roadmap</a><a href="#risk">Warnings</a><a href="#contact" class="nav-cta">Contact</a>
+      </nav>
+      <button class="mobile-toggle" type="button" aria-label="Open menu" aria-expanded="false" data-mobile-toggle><span></span><span></span><span></span></button>
+    </div>
+    <div class="mobile-menu" data-mobile-menu><div class="mobile-menu-inner"><a href="#about">About</a><a href="#utility">Utility</a><a href="#token">rKRON</a><a href="#roadmap">Roadmap</a><a href="#risk">Warnings</a><a href="#contact">Contact</a></div></div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow"><span class="pulse"></span> Base Network · Merchant Payments · KRON Ecosystem</div>
+          <h1 class="gradient-text">restoKRON</h1>
+          <p class="subtitle">A food, hospitality and merchant payment token concept for the KRON ecosystem.</p>
+          <p class="lead">restoKRON (rKRON) is designed as a digital payment and merchant infrastructure token for restaurants, cafés, hotels, delivery operators and hospitality businesses that want to explore blockchain-based payment rails, loyalty programs, settlement logic and customer rewards.</p>
+          <div class="disclosure">restoKRON is an early-stage token project on Base. It is not a bank, payment institution, e-money issuer, investment product or guaranteed-value asset. Any public use, merchant rollout or payment integration may require technical audits, legal review, compliance checks and regional licensing analysis.</div>
+          <div class="actions">
+            <a class="btn primary" href="#token">View rKRON Token</a>
+            <a class="btn gold" href="https://basescan.org/token/0xb2639dD3B59680B6e5C5895be7F2c3BAfb578690" target="_blank" rel="noopener">View on BaseScan</a>
+            <a class="btn" href="#risk">Read Risk Notice</a>
+          </div>
+        </div>
+        <aside class="hero-card">
+          <img src="/assets/restokron-hero-banner.png" alt="restoKRON rKRON hero banner">
+          <div class="pay-chip"><strong>Pay with restoKRON</strong><span>Designed for future merchant checkout, hospitality payments, customer rewards and KRON ecosystem settlement flows.</span></div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container split">
+        <div class="statement big"><h3>Why restoKRON was created</h3><p>restoKRON was created as a KRON ecosystem payment concept for real-world hospitality use cases: restaurants, cafés, bars, hotels, food delivery, catering, merchant settlement, customer rewards and loyalty infrastructure.</p></div>
+        <div class="statement"><h3>Built for merchant utility</h3><p>The project is intended to support a future merchant flow where customers can pay, merchants can receive digital settlement, and the KRON ecosystem can connect tokenized rewards, QR checkout and business dashboards.</p></div>
+      </div>
+    </section>
+
+    <section id="utility">
+      <div class="container">
+        <div class="section-head"><div class="kicker">Utility Direction</div><h2>Designed around hospitality, payments, rewards and merchant tools.</h2><p class="section-text">The first website version presents the public project identity, token information, risk notices and intended roadmap. Future products may include checkout pages, merchant dashboards, QR payment flows and API tools.</p></div>
+        <div class="cards">
+          <article class="card"><div class="icon">PAY</div><h3>Merchant Payments</h3><p>Future payment flows for restaurants, cafés, bars, hotels and food-service businesses through QR and web checkout interfaces.</p></article>
+          <article class="card"><div class="icon">POS</div><h3>Checkout & POS Logic</h3><p>Planned payment pages and merchant interfaces that can connect wallet payments, order references and transaction confirmation.</p></article>
+          <article class="card"><div class="icon">LOY</div><h3>Loyalty Rewards</h3><p>Customer rewards, cashback-style concepts, vouchers, loyalty points and promotional campaigns for participating merchants.</p></article>
+          <article class="card"><div class="icon">SET</div><h3>Settlement Layer</h3><p>Future accounting and settlement dashboards for token payments, merchant balances, exports and reconciliation support.</p></article>
+          <article class="card"><div class="icon">API</div><h3>Developer Tools</h3><p>API and webhook concepts for order IDs, payment status, receipts, confirmation tracking and integration with business systems.</p></article>
+          <article class="card"><div class="icon">KRON</div><h3>KRON Ecosystem</h3><p>Part of the wider KRON family concept, with long-term alignment to SOVRA, Entelekron and broader digital payment infrastructure.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="token">
+      <div class="container">
+        <div class="dark-band">
+          <div class="kicker">rKRON Token Information</div>
+          <h2>restoKRON is deployed on Base.</h2>
+          <p class="section-text">The official rKRON token contract is published on BaseScan. Users should always verify the contract address before interacting with any token, pool, website, wallet prompt or trading link.</p>
+          <div class="layers">
+            <div class="layer"><span>Token Name</span><span>restoKRON</span></div>
+            <div class="layer"><span>Symbol</span><span>rKRON</span></div>
+            <div class="layer"><span>Network</span><span>Base</span></div>
+            <div class="layer"><span>Contract Address</span><span>0xb2639dD3B59680B6e5C5895be7F2c3BAfb578690</span></div>
+            <div class="layer"><span>Explorer</span><span><a href="https://basescan.org/token/0xb2639dD3B59680B6e5C5895be7F2c3BAfb578690" target="_blank" rel="noopener">View on BaseScan</a></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="roadmap">
+      <div class="container">
+        <div class="section-head"><div class="kicker">Roadmap</div><h2>From public token identity to payment infrastructure prototype.</h2></div>
+        <div class="timeline">
+          <div class="step"><strong>Phase 01</strong><div><h3>Public Website & Token Registry</h3><p>Launch official website, logo assets, contract visibility, BaseScan information and token profile preparation.</p></div></div>
+          <div class="step"><strong>Phase 02</strong><div><h3>Merchant Concept Prototype</h3><p>Create sample pay page, merchant dashboard, payment reference logic and QR checkout interface for demonstration.</p></div></div>
+          <div class="step"><strong>Phase 03</strong><div><h3>Compliance & Security Review</h3><p>Review legal requirements, payment disclaimers, token usage boundaries, smart contract safety and regional merchant limitations.</p></div></div>
+          <div class="step"><strong>Phase 04</strong><div><h3>Pilot Merchant Program</h3><p>Prepare onboarding material for selected hospitality businesses, customer reward campaigns and live payment testing where legally permitted.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="risk">
+      <div class="container">
+        <div class="section-head"><div class="kicker">Important Notices</div><h2>Risk, legal and usage warnings.</h2></div>
+        <div class="warning">
+          <p><strong>No financial advice:</strong> Information on this website is for general project information only and does not constitute financial, investment, legal, tax or payment-service advice.</p>
+          <p><strong>No guaranteed value:</strong> rKRON may be volatile, illiquid or lose value. Users should not purchase or interact with tokens unless they understand blockchain risks.</p>
+          <p><strong>No regulated payment claim:</strong> restoKRON is not presented as a licensed payment institution, bank, e-money issuer or regulated financial service. Merchant payment functionality, if launched, may be limited by jurisdiction and subject to legal review.</p>
+          <p><strong>Always verify:</strong> Only use the official contract address shown on this website and BaseScan. Beware of fake tokens, phishing links, fake Telegram groups and imitation websites.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="cta">
+          <div>
+            <div class="kicker">Contact</div>
+            <h2>Merchant, restaurant and hospitality partners.</h2>
+            <p>For pilot participation, merchant integrations, technical partnerships or KRON ecosystem communication, contact the official team after the domain email is activated.</p>
+            <div class="actions">
+              <a class="btn gold" href="mailto:team@restokron.com">team@restokron.com</a>
+              <a class="btn" href="https://basescan.org/token/0xb2639dD3B59680B6e5C5895be7F2c3BAfb578690" target="_blank" rel="noopener">BaseScan Contract</a>
+            </div>
+          </div>
+          <img src="/assets/pay-with-restokron.png" alt="Pay with restoKRON logo" style="width:100%;border-radius:30px;background:white;box-shadow:0 24px 70px rgba(0,0,0,.18)">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <div>© 2026 restoKRON · rKRON · KRON Ecosystem. All rights reserved.</div>
+      <div class="footer-links"><a href="https://basescan.org/token/0xb2639dD3B59680B6e5C5895be7F2c3BAfb578690" target="_blank" rel="noopener">BaseScan</a><a href="#risk">Risk Notice</a><a href="mailto:team@restokron.com">Contact</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const mobileToggle=document.querySelector('[data-mobile-toggle]');
+    const mobileMenu=document.querySelector('[data-mobile-menu]');
+    if(mobileToggle&&mobileMenu){
+      mobileToggle.addEventListener('click',()=>{
+        const isOpen=document.body.classList.toggle('menu-open');
+        mobileToggle.setAttribute('aria-expanded',String(isOpen));
+      });
+      mobileMenu.querySelectorAll('a').forEach((link)=>{
+        link.addEventListener('click',()=>{
+          document.body.classList.remove('menu-open');
+          mobileToggle.setAttribute('aria-expanded','false');
+        });
+      });
+    }
+  </script>
+</body>
+</html>
